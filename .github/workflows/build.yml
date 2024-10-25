@@ -5,11 +5,12 @@ jobs:
   build-armbian:
     runs-on: ubuntu-latest
     steps:
-      - uses: armbian/build@main
+      - uses: armbian/build@v1.0.0  # Use a stable version tag instead of @main
         with:
-          armbian_token:   "${{ secrets.GITHUB_TOKEN }}"  # GitHub token
-          armbian_release: "jammy"                        # Userspace
-          armbian_target:  "build"                        # Options: build=image, kernel=kernel
-          armbian_board:   "orangepizero3"                # Build target
+          armbian_token:         "${{ secrets.GITHUB_TOKEN }}"  # GitHub token
+          armbian_release:       "jammy"                        # Userspace
+          armbian_target:        "build"                        # Options: build=image, kernel=kernel
+          armbian_board:         "orangepizero3"                # Build target
+          armbian_kernel_branch: "current"                      # Specify the kernel branch
         env:
           BUILD_DESKTOP: "no"
